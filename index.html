@@ -284,11 +284,11 @@
 
                             $.each(results, function (i, award) {
 
-
+                                var seperator1 = paper.location ? ", " : "";
 
                                 document.write("<p>\n" +
                                     "                        <i class=\"fab fa-solid fa-circle\"></i>" +
-                                     award.title +
+                                     award.title + seperator1 + <i>award.location</i>
                                     "               </p>" );
 
                             });
