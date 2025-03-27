@@ -840,7 +840,7 @@ a:focus {
 }
 
 .divTableRow .paperTitle::before {
-    content: '\25b6';
+    content: '\27A4';
     margin-left: -27px;
     padding-left: -20px;
     padding-right: 10px;
