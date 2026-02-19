@@ -33,7 +33,11 @@
       --link: #60a5fa;
       --link-hover: #93c5fd;
       --shadow: 0 14px 40px rgba(0,0,0,.45);
+      color-scheme: dark;
     }
+
+    /* Let the browser style built-in controls appropriately */
+    :root[data-theme="light"] { color-scheme: light; }
 
     /* Default to system theme unless user overrides */
     @media (prefers-color-scheme: dark) {
@@ -147,6 +151,12 @@
       background: currentColor;
       opacity: .75;
     }
+
+    footer{
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+    }
   </style>
 </head>
 
@@ -180,8 +190,8 @@
         </div>
 
         <p>
-          Jean agrees with the operational metrics but is concerned about system responsiveness. During peak hours,
-          managers need real-time visibility, and even small delays may reduce usability.
+          Jean agrees with the operational metrics but is concerned about website responsiveness. During peak hours,
+          managers need real-time visibility, and even small delays may reduce usage of the website.
         </p>
 
         <p>
@@ -214,6 +224,17 @@
           </span>
         </div>
       </section>
+
+      <!-- Added evaluation submission link at the bottom -->
+      <footer aria-label="Submit evaluations">
+        <p>When you're done, please submit your evaluation here:</p>
+        <div class="link-row">
+          <span class="pill">
+            <span class="icon"></span>
+            <a href="https://forms.gle/mzVRyn4SNtLgNGVP7" target="_blank" rel="noopener">Submit your evaluation (Google Form)</a>
+          </span>
+        </div>
+      </footer>
     </main>
   </div>
 
