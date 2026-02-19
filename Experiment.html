@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Website Load Time Experiment</title>
+
+  <!-- Nice, modern font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #ffffff;
+      --card: #f6f7f9;
+      --text: #111827;
+      --muted: #4b5563;
+      --border: rgba(17,24,39,.12);
+      --link: #2563eb;
+      --link-hover: #1d4ed8;
+      --shadow: 0 10px 30px rgba(0,0,0,.08);
+      --radius: 18px;
+    }
+
+    /* Dark mode palette */
+    [data-theme="dark"]{
+      --bg: #0b1220;
+      --card: rgba(255,255,255,.06);
+      --text: #e5e7eb;
+      --muted: #a1a1aa;
+      --border: rgba(255,255,255,.14);
+      --link: #60a5fa;
+      --link-hover: #93c5fd;
+      --shadow: 0 14px 40px rgba(0,0,0,.45);
+    }
+
+    /* Default to system theme unless user overrides */
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) { color-scheme: dark; }
+    }
+    @media (prefers-color-scheme: light) {
+      :root:not([data-theme="dark"]) { color-scheme: light; }
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .wrap{
+      min-height: 100%;
+      display: grid;
+      place-items: center;
+      padding: 28px 16px;
+    }
+
+    .card{
+      width: min(880px, 100%);
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 28px;
+    }
+
+    .topbar{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    h1{
+      font-size: clamp(26px, 3vw, 34px);
+      line-height: 1.2;
+      margin: 0;
+      letter-spacing: -0.02em;
+    }
+
+    .toggle{
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text);
+      border-radius: 999px;
+      padding: 10px 12px;
+      cursor: pointer;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      user-select: none;
+    }
+    .toggle:focus{ outline: 2px solid rgba(96,165,250,.6); outline-offset: 2px; }
+
+    .comma-line{
+      margin: 4px 0 18px;
+      color: var(--muted);
+    }
+
+    h2{
+      margin: 22px 0 10px;
+      font-size: 18px;
+      letter-spacing: -0.01em;
+    }
+
+    p{
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    a{
+      color: var(--link);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    a:hover{ color: var(--link-hover); text-decoration: underline; }
+
+    .link-row{
+      margin: 10px 0 16px;
+    }
+
+    .pill{
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.06);
+    }
+
+    [data-theme="light"] .pill{
+      background: rgba(17,24,39,.03);
+    }
+
+    .icon{
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: currentColor;
+      opacity: .75;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <main class="card" role="main">
+      <div class="topbar">
+        <h1>Website Load Time Experiment</h1>
+        <button id="themeToggle" class="toggle" type="button" aria-label="Toggle dark/light mode">
+          <span id="themeIcon" aria-hidden="true">☀️</span>
+          <span id="themeText">Light</span>
+        </button>
+      </div>
+
+      <div class="comma-line">,</div>
+
+      <section aria-labelledby="exp-desc">
+        <h2 id="exp-desc">Experiment Description</h2>
+
+        <p>
+          Jacqueline recently completed several MBA courses and is implementing Lean management tools at the Pizza Pazza
+          Takeout Facility. As part of her initiative, she developed a real-time operations dashboard to monitor
+          throughput, WIP, lead time, OTIF, and quality-at-source issues:
+        </p>
+
+        <div class="link-row">
+          <span class="pill">
+            <span class="icon"></span>
+            <a href="https://achalbassamboo.com/lean-dashboard.html" target="_blank" rel="noopener">View dashboard</a>
+          </span>
+        </div>
+
+        <p>
+          Jean agrees with the operational metrics but is concerned about system responsiveness. During peak hours,
+          managers need real-time visibility, and even small delays may reduce usability.
+        </p>
+
+        <p>
+          Jacqueline therefore launched an updated version of the dashboard, claiming it improves load performance:
+        </p>
+
+        <div class="link-row">
+          <span class="pill">
+            <span class="icon"></span>
+            <a href="https://achalbassamboo.com/lean-dashboard-improved.html" target="_blank" rel="noopener">View improved version</a>
+          </span>
+        </div>
+      </section>
+
+      <section aria-labelledby="your-role">
+        <h2 id="your-role">Your role</h2>
+
+        <p>You are acting as an operations consultant to Pizza Pazza.</p>
+
+        <p>
+          Your objective is to determine whether the “improved” dashboard meaningfully reduces page load time.
+        </p>
+
+        <p>To conduct your analysis, you may use the following measurement tool:</p>
+
+        <div class="link-row">
+          <span class="pill">
+            <span class="icon"></span>
+            <a href="https://achalbassamboo.com/webpage-load-time.html" target="_blank" rel="noopener">Launch tool</a>
+          </span>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    (function () {
+      const root = document.documentElement;
+      const btn = document.getElementById("themeToggle");
+      const icon = document.getElementById("themeIcon");
+      const text = document.getElementById("themeText");
+
+      // Load saved preference if present; otherwise follow system preference.
+      const saved = localStorage.getItem("theme"); // 'light' | 'dark' | null
+      if (saved === "light" || saved === "dark") {
+        root.setAttribute("data-theme", saved);
+      }
+
+      function currentTheme() {
+        return root.getAttribute("data-theme") || (
+          window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
+        );
+      }
+
+      function syncUI() {
+        const t = currentTheme();
+        if (t === "dark") {
+          icon.textContent = "🌙";
+          text.textContent = "Dark";
+        } else {
+          icon.textContent = "☀️";
+          text.textContent = "Light";
+        }
+      }
+
+      btn.addEventListener("click", () => {
+        const t = currentTheme() === "dark" ? "light" : "dark";
+        root.setAttribute("data-theme", t);
+        localStorage.setItem("theme", t);
+        syncUI();
+      });
+
+      syncUI();
+    })();
+  </script>
+</body>
+</html>
